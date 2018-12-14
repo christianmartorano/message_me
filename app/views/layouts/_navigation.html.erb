@@ -1,6 +1,4 @@
-<a class="item">
-  Home
-</a>
+<%= link_to "Chatroom", root_path, class: "item" %>
 <a class="item">
   Messages
 </a>
@@ -9,32 +7,10 @@
 </a>
 <div class="right menu">
   <div class="item">
-    <div class="ui inline dropdown">
-      <div class="text">
-        <i class="sign in alternate icon"></i>
-          Account
-      </div>
-      <i class="dropdown icon"></i>
-      <div class="menu">
-        <div class="item">
-          <i class="sign in icon"></i>
-          <%= link_to "Log In", login_path %>
-        </div>
-        <div class="item">
-          <i class="sign out alternate icon"></i>
-          Log Out
-        </div>
-        <div class="item">
-          <i class="chevron circle down icon"></i>
-          Sign Up
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="item">
-    <div class="ui primary button">
-      <i class="chevron circle down icon"></i>
-      Sign-Up
-    </div>
+    <% if !logged_in? %>
+      <%= link_to "Log In", login_path, class: "fluid ui primary button" %>
+    <% else %>
+      <%= link_to "Log Out", logout_path, class: "fluid ui negative button", method: :delete %>
+    <% end %>
   </div>
 </div>

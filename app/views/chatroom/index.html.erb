@@ -9,20 +9,16 @@
     <div class="ui fluid raised card chatbox">
       <div class="content">
         <div class="ui feed">
-          <div class="event">
-            <div class="content">
-              <em>Christian:</em> Hello World!
-            </div>
-          </div>
+          <%= render @messages %>
         </div>
       </div>
       <div class="extra content">
-        <div class="ui fluid action input">
-          <input type="text" placeholder="Enter Message">
-            <div class="ui button">
-              <i class="keyboard icon"></i>
-            </div>
-        </div>
+        <%= form_for(@message, :html => {class: "ui fluid form", role: "form"}, url: message_path) do |f| %>
+          <div class="ui fluid action input">
+            <%= f.text_field :body, placeholder: "Enter Message" %>
+            <%= f.button "<small><em>Send </em></small>&nbsp;&nbsp;<i class=\"ui keyboard icon\"></i>".html_safe, class: "ui button" %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
