@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'chatroom#index'
 
-  post 'message', to: 'chatroom#create'
+  post 'message', to: 'messages#create'
 
   get 'login', to: 'sessions#new'
 
@@ -10,6 +10,6 @@ Rails.application.routes.draw do
 
   delete 'logout', to: 'sessions#destroy'
 
-
+  mount ActionCable.server, at: '/cable'
 
 end

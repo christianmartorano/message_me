@@ -1,5 +1,10 @@
 @import "semantic-ui";
 
+#messages-container{
+  overflow: auto;
+  height: 150px;    
+}
+
 .chatbox {
   height: 350px;
 }
@@ -18,5 +23,5 @@
 
 .nick_message {
   font-weight: bold;
-  color: #728F5B;  
+  color: #728F5B;
 }

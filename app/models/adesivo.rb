@@ -1,3 +1,0 @@
-class Adesivo < ApplicationRecord
-
-end
